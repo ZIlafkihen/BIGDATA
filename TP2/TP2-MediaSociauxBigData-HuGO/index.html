@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<link rel="stylesheet" href="layout.css"/>
+	<script src="leaflet/leaflet.js"></script>
+	<script src="https://apis.google.com/js/api.js"></script>
+    <title>Carte YouTube</title>
+  </head>
+  
+  <body onload="loadClient().then(execute);">
+	<h1>Carte des vidéos YouTube</h1>
+	<p>Choisissez un lieu sur la carte pour afficher les 5 vidéos 
+	les plus populaires postées dans un rayon de 10km.</p>
+  	<div id="mapid"></div>
+	<div id="res"></div>
+	<script src="map.js"></script>
+	<script src="access_youtube.js"></script>
+  </body>
+</html>
