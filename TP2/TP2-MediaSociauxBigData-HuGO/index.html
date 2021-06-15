@@ -6,15 +6,29 @@
 	<link rel="stylesheet" href="layout.css"/>
 	<script src="leaflet/leaflet.js"></script>
 	<script src="https://apis.google.com/js/api.js"></script>
+	<script> var x = 50000 ;</script>
     <title>Carte YouTube</title>
   </head>
   
   <body onload="loadClient().then(execute);">
 	<h1>Carte des vidéos YouTube</h1>
+	<form>
 	<p>Choisissez un lieu sur la carte pour afficher les 5 vidéos 
-	les plus populaires postées dans un rayon de 10km.</p>
-  	<div id="mapid"></div>
+	les plus populaires postées dans un rayon de <br/>
+	<select id="mySelect" onchange="myFunction()">
+		<option value=50000>50km</option>
+		<option value=10000>10km</option>
+		<option value="5000">5km</option>
+		<option value="1000">1km</option>
+	</select>
+	</form>
+	<div id="mapid"></div>
 	<div id="res"></div>
+	<script>
+		function myFunction() {
+			x = document.getElementById("mySelect").value;
+		}
+	</script>
 	<script src="map.js"></script>
 	<script src="access_youtube.js"></script>
   </body>
