@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="leaflet/leaflet.css"/>
+	<link rel="stylesheet" href="layout.css"/>
+	<script src="leaflet/leaflet.js"></script>
+	<script src="https://apis.google.com/js/api.js"></script>
+	<script> var x = 10000 ;
+			 var y = "#EURO2020";
+			 var z = "10";
+			 var id = "1";</script>
+    <title>Carte YouTube</title>
+  </head>
+  
+  <body onload="execute();trends()">
+	<h1>Carte des tweets populaires selon le sujet</h1>
+	<div id="mapid"></div>
+	<form id="trendt">
+		<label for="ID">Tendances </label>
+		<select id="ID" onchange="myFunction('id')">
+			<option value="1">Monde</option>
+			<option value="23424819">France</option>
+			<option value="23424950">Espagne</option>
+			<option value="23424853">Italie</option>
+		</select>
+	</form>
+	<div id="trends"></div>
+	<form>
+		<div>
+			<label for="mySelect">Rayon : </label>
+			<select id="mySelect" onchange="myFunction('x')">
+				<option value=10000>10km</option>
+				<option value=25000>25km</option>
+				<option value="5000">5km</option>
+				<option value="1000">1km</option>
+			</select>
+		</div>
+		<div>
+			<label for="query">Quel sujet : </label>
+			<input name="query" id="query" onchange="myFunction('y')" >
+		</div>
+		<div>
+			<label for="count">Nombre de résultats max </label>
+			<input name="count" id="count" onchange="myFunction('z')">
+		</div>
+	</form>
+	<div id="res"></div>
+	<script>
+		function myFunction(string) {
+			if(string == 'x'){
+				x = document.getElementById("mySelect").value;
+				onValueChange();
+			}
+			if (string == 'y') {
+				y = document.getElementById("query").value;
+			}
+			if (string == 'z') {
+				z = document.getElementById("count").value;
+			}
+			if(string == "id"){
+				id = document.getElementById("ID").value;
+				trends();
+			}
+			execute();
+		}
+	</script>
+	<script src="map.js"></script>
+	<script src="access_twitter.js"></script>
+  </body>
+</html>
